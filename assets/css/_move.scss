@@ -1,0 +1,30 @@
+.move__slider {
+	overflow: hidden;
+  }
+  .moveSlider {
+	@media screen and (min-width: 1024px) {
+	  margin-left: -19%;
+	  margin-right: -19%;
+		padding: 10px 0;
+	}
+  }
+  .move-slide {
+	border-radius: 14px;
+	height: auto;
+	flex-grow: 1;
+
+	@media screen and (max-width:767px) {
+		max-height: 210px;
+	}
+	& img {
+	  border-radius: 14px;
+	  object-fit: cover;
+		height: 100%;
+	}
+	&.odd  {
+	  transform: rotate(-2deg);
+	}
+	&.even  {
+	  transform: rotate(2deg);
+	}
+  }
