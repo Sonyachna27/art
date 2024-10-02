@@ -117,6 +117,18 @@ const initReviewsSlider = () =>{
 			nextEl: ".reviews__slider-button-next",
 			prevEl: ".reviews__slider-button-prev",
 		},
+		on: {
+    slideChange: function(el) {
+        const slides = document.querySelectorAll('.swiper-slide');
+
+        slides.forEach(function(slide) {
+            const youtubePlayer = slide.querySelector('iframe');
+            if (youtubePlayer) {
+                youtubePlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            }
+        });
+    },
+},
 	});
 }
 const openTabs = () => {
