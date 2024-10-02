@@ -1,0 +1,122 @@
+.footer{
+	padding: 80px 0 0 0;
+	background-color: $--silver-2;
+	border-radius: 60px 60px 0px 0px;
+	@media screen and (max-width:767px) {
+		padding-top: 70px;
+		border-radius: 40px 40px 0px 0px;
+	}
+	&__top{
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		padding-bottom: 80px;
+		@media screen and (max-width:1023px) {
+			flex-direction: column;
+			gap: 40px;
+		}
+	}
+	&__info{
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		max-width: 350px;
+		width: 100%;
+		&.logo{
+			margin-bottom: 20px;
+			max-width: 200px;
+			width: fit-content;
+			height: fit-content;
+		}
+		& div{
+			padding: 20px;
+			border-radius: 30px;
+			border: 1px solid $--silver-1;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+			& strong{
+				font-weight: 800;
+			}
+		}
+		& .btn{
+			width: 100%;
+		}
+	}
+	&__nav{
+		display: flex;
+		width: 57%;
+		gap: 40px;
+		@media screen and (max-width:1023px) {
+			flex-direction: column;
+			width: 100%;
+		}
+		&__item{
+			display: flex;
+			flex-direction: column;
+			gap: 35px;
+			& .contact__info__link span{
+				text-decoration: underline;
+			}
+			&__menu ul,
+			&__socials{
+				display: flex;
+				flex-direction: column;
+				gap: 25px;
+			}
+			&__navigation{
+				max-width: 300px;
+				width: 100%;
+				@media screen and (max-width:1023px) {
+					
+					max-width: 100%;
+				}
+			}
+			&__menu{
+				font-size: 24px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: normal;
+				
+			}
+			&__socials{
+				.contact__info__wrap__socials{
+					flex-direction: column;
+					flex-wrap: nowrap;
+				}
+			}
+			&__info{
+				font-size: 18px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: normal;
+			}
+		}
+	}
+	&__copy{
+		
+		padding: 20px 0 ;
+		background-color: $--yellow;
+		&__container{
+			display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		@media screen and (max-width:767px){
+			flex-direction: column-reverse;
+		}
+		}
+		
+	}
+}
+.lumious{
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	width: fit-content;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}

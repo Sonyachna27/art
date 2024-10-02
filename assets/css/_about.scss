@@ -16,20 +16,20 @@
 			width: calc(44% - 4px);
 			max-height: 510px;
 			height: auto;
+			transform: rotate(-2deg);
+			border-radius: 30px;
 			@media screen and (max-width:1023px) {
 				width: 100%;
 				height: auto;
 				max-height: fit-content;
 			}
 			& img{
-				
 				max-height: 100%;
 				max-width: 100%;
 				height: 100%;
 				width: 100%;
 				object-fit: cover;
-				border-radius: 30px;
-				transform: rotate(-2deg);
+				border-radius: inherit;
 			}
 		}
 		&__descr{

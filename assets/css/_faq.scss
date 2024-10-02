@@ -1,0 +1,80 @@
+.faq{
+	position: relative;
+	z-index: 1;
+	padding: 140px 0 100px 0;
+	border-radius: 60px 60px 0px 0px;
+	background-color: $--white;
+	@media screen and (max-width:767px) {
+		padding: 70px 0 40px 0;
+		border-radius: 40px 40px 0px 0px;
+	}
+	&__accord{
+		max-width: 940px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	&__item{
+		padding: 40px;
+		border-radius: 30px;
+		background-color: $--white;
+		@media screen and (max-width:767px) {
+			padding: 30px 20px;
+		}
+		&.active{
+			background-color: $--yellow;
+		}
+		&__top{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 40px;
+			font-size: 20px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			color: #000;
+			z-index: 1;
+			.active &{
+				font-weight: 700;
+			}
+			&__close{
+				background-color: $--yellow;
+				border-radius: 50%;
+				max-width: 48px;
+				max-height: 48px;
+				padding: 14px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				.active &{
+					background-color: #000;
+				}
+				& svg{
+					width: 19px;
+					height: 19px;
+					transition: .3s linear;
+					.active &{
+						transform: rotate(45deg);
+					}
+					& path{
+						transition: .3s linear;
+						.active &{
+							fill: $--white;
+						}
+					}
+				}
+			}
+			@media screen and (max-width:767px) {
+				font-size: 18px;
+				gap: 5px;
+			}
+		}
+		&__bottom{
+			font-size: 18px;
+			font-style: normal;
+			font-weight: 400;
+			line-height: normal;
+		}
+	}
+	
+}

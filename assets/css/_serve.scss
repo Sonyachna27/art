@@ -1,0 +1,72 @@
+.serve{
+	&__image{
+		aspect-ratio: 1440 / 550;
+		@media screen and (max-width:767px) {
+			aspect-ratio: 370 / 270;
+		}
+		& img{
+			max-width: 100%;
+			max-height: 100%;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__container{
+		display: flex;
+		max-width: 804px;
+		width: 100%;
+		margin: 0 auto;
+		margin-top: -15%;
+		@media screen and (max-width:767px) {
+			flex-direction: column;
+		}
+	}
+	&__item{
+		padding: 50px;
+		border-radius: 30px;
+		border: 1px solid $--black;
+		background-color: $--white;
+		position: relative;
+		
+		@media screen and (max-width:767px) {
+			padding: 30px 20px;
+		}
+		&.yellow{
+			background-color: $--yellow;
+		}
+		& h3{
+			font-size: 30px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			margin-bottom: 15px;
+			@media screen and (max-width:767px) {
+				font-size: 25px;
+			}
+		}
+		& svg{
+			max-width: 100%;
+			width: 100%;
+			margin-bottom: 30px;
+
+		}
+		& ul{
+			display: flex;
+			flex-direction: column;
+			gap: 25px;
+			@include titleH5;
+			& li{
+				display: flex;
+				gap: 8px;
+				align-items: center;
+				&:before{
+					content: '';
+					width: 30px;
+					height: 15px;
+					background: url(../images/arrow.svg) center center / cover no-repeat;
+				}
+			}
+		}
+	}
+}
