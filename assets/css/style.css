@@ -1131,6 +1131,18 @@ a.header__top__link:hover:after {
   height: auto;
   aspect-ratio: 420/280;
   border-radius: 30px;
+  container-type: size;
+}
+.reviews__slider__slide:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 14cqh);
+  -webkit-clip-path: polygon(0% 0%, 0% 100%, 44% 100%, 44% 49%, 56% 49%, 56% 67%, 0% 67%, 0% 100%, 100% 100%, 100% 0%);
+          clip-path: polygon(0% 0%, 0% 100%, 44% 100%, 44% 49%, 56% 49%, 56% 67%, 0% 67%, 0% 100%, 100% 100%, 100% 0%);
 }
 .reviews__slider__slide iframe {
   max-width: 100%;
@@ -1191,6 +1203,10 @@ a.header__top__link:hover:after {
 
 .reviewsSlider {
   position: relative;
+  box-sizing: border-box;
+  padding: 10px 0;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
 .contact {
