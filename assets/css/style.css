@@ -1718,6 +1718,11 @@ a.header__top__link:hover:after {
   max-width: 350px;
   width: 100%;
 }
+@media screen and (max-width: 1023px) {
+  .footer__info {
+    max-width: 100%;
+  }
+}
 .footer__info.logo {
   margin-bottom: 20px;
   max-width: 200px;
