@@ -21,6 +21,17 @@
 			height: auto;
 			aspect-ratio: 420 / 280;
 			border-radius: 30px;
+			container-type: size;
+			&:after {
+					content: "";
+					position: absolute;
+					z-index: 1;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: calc(100% - 14cqh); // show controls
+					clip-path: polygon(0% 0%, 0% 100%, 44% 100%, 44% 49%, 56% 49%, 56% 67%, 0% 67%, 0% 100%, 100% 100%, 100% 0%); // show play button
+			}
 			& iframe{
 				max-width: 100%;
 				width: 100%;
@@ -94,4 +105,8 @@
 }
 .reviewsSlider{
 	position: relative;
+	box-sizing: border-box;
+        padding: 10px 0;
+        overflow-y: hidden;
+        overflow-x: auto;
 }
