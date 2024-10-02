@@ -561,18 +561,18 @@ a.header__top__link:hover:after {
     margin-left: -20px;
   }
 }
-.hero__form p {
+.hero__form div {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   margin-bottom: 20px;
 }
-.hero__form p span {
+.hero__form div span {
   font: inherit;
   font-weight: 400;
 }
-.hero__form p span {
+.hero__form div span {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -1449,7 +1449,7 @@ a.header__top__link:hover:after {
     padding: 30px 20px;
   }
 }
-.contact__form__wrap div {
+.contact__form__wrap div:not([class]) {
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -1457,11 +1457,11 @@ a.header__top__link:hover:after {
   margin-bottom: 30px;
 }
 @media screen and (max-width: 767px) {
-  .contact__form__wrap div {
+  .contact__form__wrap div:not([class]) {
     font-size: 25px;
   }
 }
-.contact__form__wrap div span {
+.contact__form__wrap div:not([class]) span {
   font: inherit;
   font-weight: 400;
 }
