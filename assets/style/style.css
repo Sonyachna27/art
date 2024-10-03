@@ -203,6 +203,31 @@ body {
   margin-bottom: 70px;
 }
 
+.sectionScroll {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.animate {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px, 0px);
+  animation: example 1s;
+}
+
+@keyframes example {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(var(--startScrollTop, 150px));
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(calc(var(--scrollTop) / 10));
+  }
+}
 .header {
   border-radius: 0px 0px 30px 30px;
   background: #fff;
@@ -326,6 +351,27 @@ a.header__top__link:hover:after {
 @media screen and (max-width: 767px) {
   .header__bottom {
     border-radius: 20px;
+  }
+}
+.header__bottom.fixed-header-nav {
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+@keyframes smoothScroll {
+  0% {
+    transform: translateY(-40px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes removeSmoothScroll {
+  0% {
+    transform: translateY(40px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
@@ -488,13 +534,14 @@ a.header__top__link:hover:after {
 .hero {
   padding: 30px 0 80px 0;
   margin: -30px 0 -80px 0;
-  background: url(../images/hero-img.jpg) center 30%/cover no-repeat;
+  background: url(../images/hero-img.jpg) center 37%/cover no-repeat;
   position: relative;
 }
 @media screen and (max-width: 767px) {
   .hero {
     padding: 30px 0 0px 0;
     margin: -30px 0 0px 0;
+    background: url(../images/hero-img.jpg) 32% 12%/160% no-repeat;
   }
 }
 .hero:after {
@@ -510,11 +557,11 @@ a.header__top__link:hover:after {
 .hero__container {
   z-index: 1;
   position: relative;
-  padding: 230px 0 0 0;
+  padding: 260px 0 0 0px;
 }
 @media screen and (max-width: 767px) {
   .hero__container {
-    padding: 140px 0 0 0;
+    padding: 270px 0 0 0;
   }
 }
 .hero__content {
@@ -532,7 +579,19 @@ a.header__top__link:hover:after {
 }
 @media screen and (max-width: 767px) {
   .hero__content {
-    margin-bottom: 86px;
+    margin-bottom: 186px;
+  }
+}
+.hero__content h1 {
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 150%;
+}
+@media screen and (max-width: 767px) {
+  .hero__content h1 {
+    font-size: 32px;
+    line-height: 130%;
   }
 }
 .hero__content svg {
@@ -548,6 +607,11 @@ a.header__top__link:hover:after {
 @media screen and (max-width: 767px) {
   .hero__content p {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hero__content p {
+    font-size: 16px;
   }
 }
 .hero__form {
@@ -566,18 +630,18 @@ a.header__top__link:hover:after {
     margin-left: -20px;
   }
 }
-.hero__form div {
+.hero__form div:not([class]) {
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   margin-bottom: 20px;
 }
-.hero__form div span {
+.hero__form div:not([class]) span {
   font: inherit;
   font-weight: 400;
 }
-.hero__form div span {
+.hero__form div:not([class]) span {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -595,6 +659,9 @@ a.header__top__link:hover:after {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .hero__form form .input__wrap label {
   margin-bottom: 5px;
@@ -1077,6 +1144,8 @@ a.header__top__link:hover:after {
   border: 1px solid #131313;
   background-color: #fff;
   position: relative;
+  perspective: 1000px;
+  transform: rotateY(0deg);
 }
 @media screen and (max-width: 767px) {
   .serve__item {
@@ -1128,6 +1197,23 @@ a.header__top__link:hover:after {
   background: url(../images/arrow.svg) center center/cover no-repeat;
 }
 
+.animateblocks {
+  animation: exampleAnimate 1s;
+  visibility: visible;
+}
+
+@keyframes exampleAnimate {
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: rotateY(0deg);
+  }
+}
 .reviews__title h2 {
   margin-bottom: 15px;
 }
@@ -1423,7 +1509,7 @@ a.header__top__link:hover:after {
     aspect-ratio: 1;
   }
 }
-.contact__local__img img {
+.contact__local__img iframe {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -1828,6 +1914,22 @@ a.header__top__link:hover:after {
 .footer__nav__item .contact__info__link span {
   text-decoration: underline;
 }
+.footer__nav__item .contact__info__link a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: 0.3s linear;
+}
+.footer__nav__item .contact__info__link a:hover::after {
+  width: 100%;
+}
+.footer__nav__item .contact__info__link a:after {
+  content: "";
+  transition: 0.3s linear;
+  width: 0%;
+  height: 1px;
+  background-color: #131313;
+}
 .footer__nav__item__menu ul, .footer__nav__item__socials {
   display: flex;
   flex-direction: column;
@@ -1847,6 +1949,22 @@ a.header__top__link:hover:after {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+.footer__nav__item__menu li a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: 0.3s linear;
+}
+.footer__nav__item__menu li a:hover::after {
+  width: 100%;
+}
+.footer__nav__item__menu li a:after {
+  content: "";
+  transition: 0.3s linear;
+  width: 0%;
+  height: 1px;
+  background-color: #131313;
 }
 .footer__nav__item__socials .contact__info__wrap__socials {
   flex-direction: column;
@@ -1871,6 +1989,8 @@ a.header__top__link:hover:after {
 @media screen and (max-width: 767px) {
   .footer__copy__container {
     flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -1884,4 +2004,11 @@ a.header__top__link:hover:after {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+@media screen and (max-width: 767px) {
+  .lumious {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
 }/*# sourceMappingURL=style.css.map */

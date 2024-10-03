@@ -96,11 +96,33 @@ a.header__top__link:hover{
 	@media screen and (max-width:767px) {
 		border-radius: 20px;
 	}
+	&.fixed-header-nav {
+    top: 0;
+    position: fixed;
+    width: 100%;
+  }
+  @keyframes smoothScroll {
+    0% {
+      transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  @keyframes removeSmoothScroll {
+    0% {
+      transform: translateY(40px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
 }
 .header__bottom__container{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
 }
 .header__navigation{
 	display: flex;
