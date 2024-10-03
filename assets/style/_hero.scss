@@ -1,11 +1,12 @@
 .hero{
 	padding: 30px 0 80px 0;
 	margin: -30px 0 -80px 0;
-	background: url(../images/hero-img.jpg) center 30% / cover no-repeat;
+	background: url(../images/hero-img.jpg) center 37% / cover no-repeat;
 	position: relative;
 	@media screen and (max-width:767px) {
 		padding: 30px 0 0px 0;
 	margin: -30px 0 0px 0;
+	background:url(../images/hero-img.jpg) 32% 12%/160% no-repeat;
 	}
 	&:after{
 		content: '';
@@ -20,9 +21,9 @@
 	&__container{
 		z-index: 1;
 		position: relative;
-		padding: 230px 0 0 0;
+		padding: 260px 0 0 0px;
 		@media screen and (max-width:767px) {
-			padding: 140px 0 0 0;
+			padding: 270px 0 0 0;
 		}
 	}
 	&__content{
@@ -38,7 +39,10 @@
 		margin: 0 auto;
 		margin-bottom: 40px;
 		@media screen and (max-width:767px) {
-			margin-bottom: 86px;
+			margin-bottom: 186px;
+		}
+		& h1{
+			@include titleH1;
 		}
 	& svg{
 		max-width: 100%;
@@ -46,6 +50,9 @@
 	}
 	& p{
 		@include p3;
+		@media screen and (max-width:767px) {
+			font-size: 16px;
+		}
 	}
 	}
 	&__form{
@@ -61,7 +68,7 @@
 			min-width: 100vw;
 					margin-left: -20px;
 		}
-		& div{
+		& div:not([class]){
 			@include titleH5;
 			margin-bottom: 20px;
 			& span{
@@ -83,6 +90,9 @@
 				font-style: normal;
 				font-weight: 600;
 				line-height: normal;
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
 			& label{
 				margin-bottom: 5px;
 			}

@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () =>{
 	initReviewsSlider();
 	openTabs();
 	accordionFunction();
+	fixedHeader();
+	animateSectionPosition();
+	animateServeBlocks();
 });
 
 const openHeader = () =>{
@@ -46,15 +49,15 @@ const actionSliderFunction = () =>{
 			breakpoints: {
 				367: {
 					slidesPerView: 3,
-					spaceBetween: 10,
+					spaceBetween: 20,
 				},
 				550: {
 					slidesPerView: 4,
-					spaceBetween: 10,
+					spaceBetween: 20,
 				},
 				767: {
 					slidesPerView: 5,
-					spaceBetween: 10,
+					spaceBetween: 20,
 				},
 				1023: {
 					slidesPerView: 6,
@@ -200,3 +203,81 @@ document.querySelectorAll('a[href^="#"').forEach(link => {
 			});
 	});
 });
+
+const fixedHeader = () =>{
+	let windowInnerWidth = window.innerWidth;
+	const headerNav = document.querySelector(".header__bottom");
+	let lastScrollTop = 0;
+
+	window.addEventListener("scroll", function () {
+		const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+		if (windowInnerWidth >= 1024) {
+			if (scrollTop > lastScrollTop) {
+				if (scrollTop > 100) {
+					headerNav.classList.add("fixed-header-nav");
+					headerNav.style.animationName = "smoothScroll";
+				}
+			} else if (scrollTop <= 0) {
+				headerNav.classList.remove("fixed-header-nav");
+				headerNav.style.animationName = "removeSmoothScroll";
+			}
+			lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+		}
+	});
+}
+const animateSectionPosition = () =>{
+	const sections = document.querySelectorAll(".sectionScroll");
+	if(!sections) return;
+	const options = {
+		root: document,
+		rootMargin: "0px",
+		threshold: 0.1,
+	};
+
+	const callback = function (entries, observer) {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting && !entry.target.classList.contains("animate")) {
+				entry.target.classList.add("animate");
+			} else if (
+				!entry.isIntersecting &&
+				entry.target.classList.contains("animate")
+			) {
+				entry.target.classList.remove("animate");
+			}
+		});
+	};
+
+	const observer = new IntersectionObserver(callback, options);
+
+	sections.forEach((section) => observer.observe(section));
+
+}
+
+const animateServeBlocks = () =>{
+	const sections = document.querySelectorAll(".serve__item");
+	if(!sections) return;
+	const options = {
+		root: document,
+		rootMargin: "0px",
+		threshold: 0.4,
+	};
+
+	const callback = function (entries, observer) {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting && !entry.target.classList.contains("animate")) {
+				entry.target.classList.add("animateblocks");
+			} else if (
+				!entry.isIntersecting &&
+				entry.target.classList.contains("animateblocks")
+			) {
+				entry.target.classList.remove("animateblocks");
+			}
+		});
+	};
+
+	const observer = new IntersectionObserver(callback, options);
+
+	sections.forEach((section) => observer.observe(section));
+
+}

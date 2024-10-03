@@ -28,7 +28,9 @@
 		border: 1px solid $--black;
 		background-color: $--white;
 		position: relative;
-		
+		perspective: 1000px;
+		transform: rotateY(0deg);
+	
 		@media screen and (max-width:767px) {
 			padding: 30px 20px;
 		}
@@ -68,5 +70,23 @@
 				}
 			}
 		}
+	}
+}
+.animateblocks{
+	animation: exampleAnimate 1s;
+	visibility: visible;
+}
+@keyframes exampleAnimate {
+	from{
+		opacity: 0;
+		visibility: hidden;
+		transform:  rotateY(90deg);
+	
+	}
+	to{
+		opacity: 1;
+    visibility: visible;
+		transform:  rotateY(0deg);
+		
 	}
 }
